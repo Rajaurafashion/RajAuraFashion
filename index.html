@@ -11,53 +11,136 @@
       background-color: #f8f1e7;
       color: #4b2e2e;
     }
+
     header {
       background-color: #4b2e2e;
       padding: 20px;
       text-align: center;
       color: #fff;
     }
+
     nav a {
       margin: 0 15px;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
     }
+
     section {
       padding: 60px 20px;
       text-align: center;
     }
+
     .logo {
       max-width: 180px;
       margin-top: 20px;
     }
+
     footer {
       background-color: #4b2e2e;
       color: white;
       text-align: center;
       padding: 15px;
     }
+
+    /* Sidebar styles */
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #4b2e2e;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+
+    .sidebar a, .sidebar span {
+      padding: 12px 25px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #fff;
+      display: block;
+      cursor: pointer;
+    }
+
+    .sidebar a:hover, .sidebar span:hover {
+      background-color: #b76e79;
+    }
+
+    .submenu {
+      display: none;
+      padding-left: 20px;
+    }
+
+    .submenu a {
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
+  <!-- Sidebar Menu Icon -->
+  <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+
+  <!-- Sidebar Navigation -->
+  <div id="sidebar" class="sidebar">
+    <a href="#">Home</a>
+    <div class="dropdown">
+      <span onclick="toggleSubmenu()">Categories +</span>
+      <div id="submenu" class="submenu">
+        <a href="kurtis.html">Kurtis</a>
+        <a href="jewellery.html">Jewellery</a>
+        <a href="dupattas.html">Dupattas</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Website Header -->
   <header>
-   <img src="Rajaura Logo.jpeg" alt="RajAura Logo" class="logo" style="width: 300px; height: auto;" />
+    <img src="Rajaura Logo.jpeg" alt="RajAura Logo" class="logo" style="width: 300px; height: auto;" />
     <h1>Welcome to RajAura</h1>
   </header>
 
+  <!-- About Section -->
   <section id="about">
     <h2>About Us</h2>
-    <p><strong>RajAura is a soulful fashion brand celebrating the elegance, culture, and timeless beauty of Rajasthan.</strong> Our collection is handcrafted with love for women who embrace tradition with pride and grace.</p>
+    <p><strong>RajAura is a soulful fashion brand celebrating the elegance,<br>culture, and timeless beauty of Rajasthan.</strong> Our collection is handcrafted with love for women who embrace tradition with pride and grace.</p>
   </section>
 
+  <!-- Coming Soon Section -->
   <section id="coming">
     <h2>Coming Soon</h2>
     <p>We're working on something beautiful. Stay tuned for our grand launch!</p>
-    <p><strong>Thank You For Your Petience</strong></p>
+    <p><strong>Thank You For Your Patience</strong></p>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 RajAura. All rights reserved.</p>
   </footer>
+
+  <!-- JavaScript for Sidebar -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
+    }
+
+    function toggleSubmenu() {
+      const submenu = document.getElementById("submenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </body>
 </html>

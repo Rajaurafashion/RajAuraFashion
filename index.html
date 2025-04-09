@@ -19,6 +19,13 @@
       color: #fff;
     }
 
+    nav a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
     section {
       padding: 60px 20px;
       text-align: center;
@@ -58,6 +65,12 @@
       transition: 0.3s;
       padding-top: 60px;
       z-index: 1000;
+      display: none;
+    }
+
+    .sidebar.active {
+      width: 250px;
+      display: block;
     }
 
     .sidebar a, .sidebar span {
@@ -84,18 +97,19 @@
   </style>
 </head>
 <body>
-
   <!-- Sidebar Menu Icon -->
   <div class="menu-icon" onclick="toggleSidebar()">☰</div>
 
   <!-- Sidebar Navigation -->
   <div id="sidebar" class="sidebar">
     <a href="#">Home</a>
-    <span onclick="toggleSubmenu()">Categories +</span>
-    <div id="submenu" class="submenu">
-      <a href="#">Kurtis</a>
-      <a href="#">Jewellery</a>
-      <a href="#">Dupattas</a>
+    <div class="dropdown">
+      <span onclick="toggleSubmenu()">Categories +</span>
+      <div id="submenu" class="submenu">
+        <a href="#">Kurtis</a>
+        <a href="#">Jewellery</a>
+        <a href="#">Dupattas</a>
+      </div>
     </div>
   </div>
 
@@ -125,16 +139,9 @@
 
   <!-- JavaScript for Sidebar -->
   <script>
-    let sidebarOpen = false;
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar");
-      if (!sidebarOpen) {
-        sidebar.style.width = "250px";
-        sidebarOpen = true;
-      } else {
-        sidebar.style.width = "0";
-        sidebarOpen = false;
-      }
+      sidebar.classList.toggle("active");
     }
 
     function toggleSubmenu() {

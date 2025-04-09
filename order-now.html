@@ -1,56 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Order Now | RajAura</title>
+  <meta charset="UTF-8">
+  <title>Order Now - RajAura</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f8f1e7;
       color: #4b2e2e;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #4b2e2e;
+      padding: 40px;
     }
 
     form {
-      max-width: 600px;
+      max-width: 500px;
       margin: auto;
       background-color: white;
-      padding: 25px;
+      padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 10px;
-      margin-top: 6px;
+      margin: 10px 0;
       border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
+      border-radius: 8px;
     }
 
     button {
-      margin-top: 20px;
       background-color: #4b2e2e;
       color: white;
       padding: 12px 20px;
       border: none;
       border-radius: 8px;
-      font-size: 16px;
       cursor: pointer;
+      font-size: 16px;
     }
 
     button:hover {
@@ -59,35 +44,47 @@
   </style>
 </head>
 <body>
-
-  <h1>Place Your Order</h1>
-  <form action="mailto:orders@rajaurafashion.com" method="POST" enctype="text/plain">
-    <label for="name">Your Name</label>
-    <input type="text" name="name" required />
-
-    <label for="email">Your Email</label>
-    <input type="email" name="email" required />
-
-    <label for="phone">Phone Number</label>
-    <input type="tel" name="phone" required />
-
-    <label for="product">Product Name</label>
-    <input type="text" id="productInput" name="product" readonly />
-
-    <label for="details">Additional Details</label>
-    <textarea name="details" rows="4" placeholder="Size, color preference, etc."></textarea>
-
+  <h2 style="text-align:center;">Place Your Order</h2>
+  <form id="orderForm">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+    <input type="text" name="product" placeholder="Product Name" required />
+    <input type="number" name="quantity" placeholder="Quantity" required />
+    <textarea name="address" placeholder="Shipping Address" required></textarea>
+    <textarea name="notes" placeholder="Any Notes (Optional)"></textarea>
     <button type="submit">Submit Order</button>
   </form>
 
   <script>
-    // Auto-fill product name from URL
-    const params = new URLSearchParams(window.location.search);
-    const product = params.get("product");
-    if (product) {
-      document.getElementById("productInput").value = decodeURIComponent(product);
-    }
-  </script>
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
 
+      fetch("https://script.google.com/macros/s/AKfycbz7I9BpkdbX0-nixE7LpQvFnB6G8ivKr76-NKgUwThQGK_I7lNAgHDh4DdQPV6EwYrmsQ/exec", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: form.name.value,
+          email: form.email.value,
+          phone: form.phone.value,
+          product: form.product.value,
+          quantity: form.quantity.value,
+          address: form.address.value,
+          notes: form.notes.value
+        })
+      })
+      .then(() => {
+        alert("Order Submitted Successfully!");
+        form.reset();
+      })
+      .catch(err => {
+        alert("There was an error submitting your order.");
+        console.error(err);
+      });
+    });
+  </script>
 </body>
 </html>

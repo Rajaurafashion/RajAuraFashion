@@ -45,7 +45,6 @@
       padding: 15px;
     }
 
-    /* Sidebar styles */
     .menu-icon {
       position: fixed;
       top: 20px;
@@ -100,15 +99,13 @@
   </style>
 </head>
 <body>
-  <!-- Sidebar Menu Icon -->
   <div class="menu-icon" onclick="toggleSidebar()">☰</div>
 
-  <!-- Sidebar Navigation -->
   <div id="sidebar" class="sidebar">
     <a href="#">Home</a>
-    <span onclick="toggleSubmenu()">Categories +</span>
+    <span id="categoryToggle" onclick="toggleSubmenu('submenu', 'categoryToggle')">Categories +</span>
     <div id="submenu" class="submenu">
-      <span onclick="toggleKurtisSubmenu()">Kurtis +</span>
+      <span id="kurtisToggle" onclick="toggleSubmenu('kurtisSubmenu', 'kurtisToggle')">Kurtis +</span>
       <div id="kurtisSubmenu" class="submenu">
         <a href="#">Short Kurtis</a>
         <a href="#">Long Kurtis</a>
@@ -118,45 +115,37 @@
     </div>
   </div>
 
-  <!-- Website Header -->
   <header>
     <img src="Rajaura Logo.jpeg" alt="RajAura Logo" class="logo" style="width: 300px; height: auto;" />
     <h1>Welcome to RajAura</h1>
   </header>
 
-  <!-- About Section -->
   <section id="about">
     <h2>About Us</h2>
     <p><strong>RajAura is a soulful fashion brand celebrating the elegance,<br>culture, and timeless beauty of Rajasthan.</strong><br>Our collection is handcrafted with love for women who embrace tradition with pride and grace.</p>
   </section>
 
-  <!-- Coming Soon Section -->
   <section id="coming">
     <h2>Coming Soon</h2>
     <p>We're working on something beautiful. Stay tuned for our grand launch!</p>
     <p><strong>Thank You For Your Patience</strong></p>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 RajAura. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript for Sidebar -->
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar");
       sidebar.classList.toggle("active");
     }
 
-    function toggleSubmenu() {
-      const submenu = document.getElementById("submenu");
-      submenu.classList.toggle("show");
-    }
-
-    function toggleKurtisSubmenu() {
-      const kurtisSubmenu = document.getElementById("kurtisSubmenu");
-      kurtisSubmenu.classList.toggle("show");
+    function toggleSubmenu(id, toggleId) {
+      const submenu = document.getElementById(id);
+      const toggleText = document.getElementById(toggleId);
+      const isShown = submenu.classList.toggle("show");
+      toggleText.textContent = toggleText.textContent.replace(isShown ? '+' : '-', isShown ? '-' : '+');
     }
   </script>
 </body>

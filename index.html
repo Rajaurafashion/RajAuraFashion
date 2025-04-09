@@ -94,8 +94,8 @@
       padding-left: 20px;
     }
 
-    .submenu a {
-      font-size: 16px;
+    .submenu.show {
+      display: block;
     }
   </style>
 </head>
@@ -106,13 +106,11 @@
   <!-- Sidebar Navigation -->
   <div id="sidebar" class="sidebar">
     <a href="#">Home</a>
-    <div class="dropdown">
-      <span onclick="toggleSubmenu()">Categories +</span>
-      <div id="submenu" class="submenu">
-        <a href="#">Kurtis</a>
-        <a href="#">Jewellery</a>
-        <a href="#">Dupattas</a>
-      </div>
+    <span onclick="toggleSubmenu()">Categories +</span>
+    <div id="submenu" class="submenu">
+      <a href="#">Kurtis</a>
+      <a href="#">Jewellery</a>
+      <a href="#">Jutiyas</a>
     </div>
   </div>
 
@@ -149,7 +147,7 @@
 
     function toggleSubmenu() {
       const submenu = document.getElementById("submenu");
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+      submenu.classList.toggle("show");
     }
   </script>
 </body>

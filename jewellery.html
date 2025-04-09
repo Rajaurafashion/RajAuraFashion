@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jewellery - RajAura</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #4b2e2e;
+    }
+
+    header {
+      background-color: #4b2e2e;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    a.back {
+      display: inline-block;
+      margin: 20px;
+      color: #4b2e2e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .product {
+      border: 1px solid #e0cfcf;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px;
+      width: 250px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+
+    .product p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .product s {
+      color: #888;
+    }
+
+    .product strong {
+      color: green;
+      margin-left: 5px;
+    }
+
+    .product span {
+      color: red;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jewellery Collection</h1>
+  </header>
+
+  <a href="index.html" class="back">&larr; Back to Home</a>
+
+  <div class="products">
+    <!-- Example Product -->
+    <div class="product">
+      <img src="jewellery1.jpg" alt="Gold Plated Earrings" />
+      <h3>Gold Plated Earrings</h3>
+      <p>
+        <s>₹1199</s>
+        <strong>₹899</strong>
+        <span>(25% OFF)</span>
+      </p>
+    </div>
+
+    <!-- Add more products like this by duplicating -->
+  </div>
+</body>
+</html>

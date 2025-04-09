@@ -108,7 +108,11 @@
     <a href="#">Home</a>
     <span onclick="toggleSubmenu()">Categories +</span>
     <div id="submenu" class="submenu">
-      <a href="#">Kurtis</a>
+      <span onclick="toggleKurtisSubmenu()">Kurtis +</span>
+      <div id="kurtisSubmenu" class="submenu">
+        <a href="#">Short Kurtis</a>
+        <a href="#">Long Kurtis</a>
+      </div>
       <a href="#">Jewellery</a>
       <a href="#">Jutiyas</a>
     </div>
@@ -148,6 +152,11 @@
     function toggleSubmenu() {
       const submenu = document.getElementById("submenu");
       submenu.classList.toggle("show");
+    }
+
+    function toggleKurtisSubmenu() {
+      const kurtisSubmenu = document.getElementById("kurtisSubmenu");
+      kurtisSubmenu.classList.toggle("show");
     }
   </script>
 </body>

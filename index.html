@@ -3,97 +3,88 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>RajAura - Ethnic Elegance</title>
+<title>RajAura - Royal Kurtis</title>
 <style>
 body {
 margin: 0;
-font-family: 'Segoe UI', sans-serif;
-background-color: #fffaf4;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #f8f1ea;
+color: #3c2f2f;
 }
-header {
-background-color: #b08d57;
-color: white;
-padding: 1rem;
+
+.hero {
 display: flex;
-justify-content: space-between;
-align-items: center;
+flex-wrap: wrap;
+height: 100vh;
 }
-  <img src="Rajaura Logo.jpeg" alt="RajAura Logo" class="logo" style="width: 300px; height: auto;" />
-.menu-button {
-font-size: 24px;
-cursor: pointer;
+
+.hero-left {
+flex: 1;
+background-color: #f2e1ce;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 40px;
 }
-.side-drawer {
-position: fixed;
-top: 0;
-left: -250px;
-width: 250px;
-height: 100%;
-background-color: #fff0e1;
-box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-padding: 2rem 1rem;
-transition: 0.3s;
+
+.hero-left img.logo {
+width: 140px;
+margin-bottom: 30px;
 }
-.side-drawer.open {
-left: 0;
+
+.hero-left h1 {
+font-size: 2.5rem;
+margin: 0;
 }
-.side-drawer h3 {
+
+.hero-left p {
+margin-top: 10px;
+font-size: 1.1rem;
+}
+
+.hero-right {
+flex: 1;
+background: url('images/kurti.jpg') center/cover no-repeat;
+}
+
+.product-box {
+padding: 30px;
+background: white;
+border-radius: 16px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+margin: 20px;
+}
+
+.product-box h2 {
 margin-top: 0;
 }
-.side-drawer a {
-display: block;
-margin: 1rem 0;
-text-decoration: none;
-color: #b08d57;
+
+.product-box p {
+margin: 8px 0;
 }
-.content {
-padding: 2rem;
-}
-.product {
-max-width: 400px;
-background: white;
-border: 1px solid #f0e0d6;
-border-radius: 10px;
-padding: 1rem;
-box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-.product img {
-width: 100%;
-border-radius: 8px;
-}
-.product h2 {
-color: #b08d57;
-margin: 0.5rem 0 0.2rem;
-}
-.product p {
-margin: 0;
+
+.price {
+font-weight: bold;
+font-size: 1.2rem;
+color: #b3813d;
 }
 </style>
 </head>
 <body>
-<header>
-<h1>RajAura</h1>
-<span class="menu-button" onclick="toggleDrawer()">☰</span>
-</header>
-<div class="side-drawer" id="drawer">
-<h3>Categories</h3>
-<a href="#">Kurti</a>
-<a href="#">Jewellery</a>
-<a href="#">Watch</a>
+<div class="hero">
+<div class="hero-left">
+<img src="images/logo.png" alt="RajAura Logo" class="logo" />
+<h1>Grace of Rajasthan</h1>
+<p>Royal elegance from Kashmir to Kanyakumari</p>
 </div>
-<div class="content">
-<h2>Our Latest Product</h2>
-<div class="product">
-<img src="https://via.placeholder.com/400x500.png?text=Royal+Pink+Kurti" alt="Royal Pink Kurti">
-<h2>Royal Pink Kurti</h2>
-<p><strong>Price:</strong> ₹1,299</p>
-</div>
+<div class="hero-right"></div>
 </div>
 
-<script>
-function toggleDrawer() {
-document.getElementById("drawer").classList.toggle("open");
-}
-</script>
+<div class="product-box">
+<h2>Royal Handcrafted Kurti</h2>
+<p class="price">₹1,499</p>
+<p>Made with love in Jaipur. Free Pan India delivery available.</p>
+</div>
 </body>
 </html>

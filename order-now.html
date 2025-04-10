@@ -20,7 +20,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    input, textarea, select {
+    input, textarea {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
@@ -49,7 +49,7 @@
     <input type="text" name="name" placeholder="Your Name" required />
     <input type="email" name="email" placeholder="Email Address" required />
     <input type="tel" name="phone" placeholder="Phone Number" required />
-    <input type="text" name="product" id="productInput" placeholder="Product Name" required />
+    <input type="text" name="product" placeholder="Product Name" required />
     <input type="number" name="quantity" placeholder="Quantity" required />
     <textarea name="address" placeholder="Shipping Address" required></textarea>
     <textarea name="notes" placeholder="Any Notes (Optional)"></textarea>
@@ -57,39 +57,35 @@
   </form>
 
   <script>
-    // Auto-fill product name from URL query param
-    const urlParams = new URLSearchParams(window.location.search);
-    const productName = urlParams.get('product');
-    if (productName) {
-      document.getElementById('productInput').value = decodeURIComponent(productName);
-    }
-
     document.getElementById('orderForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const form = e.target;
 
-      fetch("https://script.google.com/macros/s/AKfycbz7I9BpkdbX0-nixE7LpQvFnB6G8ivKr76-NKgUwThQGK_I7lNAgHDh4DdQPV6EwYrmsQ/exec", {
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        product: form.product.value,
+        quantity: form.quantity.value,
+        address: form.address.value,
+        notes: form.notes.value
+      };
+
+      fetch("https://script.google.com/macros/s/AKfycbxvDk1gemZV8XNqU_VEuOcPtCfd2EaN3q6gAkraztsyRUzXJOfjBETuLIpqCGEnV5CNfg/exec", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          name: form.name.value,
-          email: form.email.value,
-          phone: form.phone.value,
-          product: form.product.value,
-          quantity: form.quantity.value,
-          address: form.address.value,
-          notes: form.notes.value
-        })
+        body: JSON.stringify(formData)
       })
-      .then(() => {
-        alert("Order Submitted Successfully!");
+      .then(response => response.text())
+      .then(result => {
+        alert("Order submitted successfully!");
         form.reset();
       })
-      .catch(err => {
+      .catch(error => {
         alert("There was an error submitting your order.");
-        console.error(err);
+        console.error("Error:", error);
       });
     });
   </script>

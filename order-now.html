@@ -100,11 +100,15 @@
         notes: form.notes.value.trim()
       };
 
-      fetch("https://script.google.com/macros/s/AKfycbxvDk1gemZV8XNqU_VEuOcPtCfd2EaN3q6gAkraztsyRUzXJOfjBETuLIpqCGEnV5CNfg/exec", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      })
+    fetch("https://script.google.com/macros/s/AKfycbxvDk1gemZV8XNqU_VEuOcPtCfd2EaN3q6gAkraztsyRUzXJOfjBETuLIpqCGEnV5CNfg/exec", {
+  method: 'POST',
+  mode: 'no-cors', // 👈 TEMPORARY BYPASS (won’t return proper success/failure)
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(formData)
+})
+
       .then(res => res.json())
       .then(response => {
         if (response.success) {

@@ -3,108 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jutiyas | RajAura</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <img src="logo.png" alt="RajAura Logo" style="height: 80px;" />
-    <h1>RajAura - Soulful Fashion</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="long-kurtis.html">Kurtis</a>
-      <a href="jewellery.html">Jewellery</a>
-      <a href="jutiyas.html" class="active">Jutiyas</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="product-section">
-      <h2>Our Jutiyas Collection</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="Jutiyas.jpg" alt="Beige Hand Embroidered Juti">
-          <h3>Beige Hand Embroidered Juti</h3>
-          <p class="price">₹1,299</p>
-          <p class="material">Cotton • Beige</p>
-        </div>
-
-        <!-- Future products can be added below like this:
-        <div class="product-card">
-          <img src="new-juti.jpg" alt="New Juti">
-          <h3>Elegant Mirror Work Juti</h3>
-          <p class="price">₹1,499</p>
-          <p class="material">Silk • Maroon</p>
-        </div>
-        -->
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 RajAura. All rights reserved.</p>
-  </footer>
-
+  <title>Jutiyas - RajAura</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fdf6f0;
-      color: #333;
+      background-color: #fff8f0;
+      color: #4b2e2e;
     }
+
     header {
-      background-color: #5d2a2a;
-      color: white;
+      background-color: #4b2e2e;
+      padding: 20px;
       text-align: center;
-      padding: 1rem;
+      color: #fff;
     }
-    nav a {
-      color: #fbe6d4;
+
+    a.back {
+      display: inline-block;
+      margin: 20px;
+      padding: 8px 16px;
+      background-color: #f3d9c0;
+      border-radius: 6px;
+      color: #4b2e2e;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
     }
-    nav a.active {
-      text-decoration: underline;
+
+    a.back:hover {
+      background-color: #e5c1a3;
     }
-    .product-section {
-      padding: 2rem;
-      text-align: center;
-    }
-    .product-grid {
+
+    .products {
       display: flex;
       justify-content: center;
-      gap: 2rem;
       flex-wrap: wrap;
+      padding: 20px;
     }
-    .product-card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 1rem;
-      width: 280px;
+
+    .product {
+      border: 1px solid #e0cfcf;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px;
+      width: 250px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.3s ease;
     }
-    .product-card img {
-      max-width: 100%;
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .product img {
+      width: 100%;
       border-radius: 8px;
     }
-    .price {
+
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+
+    .product p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .product s {
+      color: #888;
+    }
+
+    .product strong {
+      color: green;
+      margin-left: 5px;
+    }
+
+    .product span {
+      color: red;
+      margin-left: 5px;
       font-weight: bold;
-      color: #ba6b39;
     }
-    .material {
-      font-size: 0.9rem;
-      color: #777;
-    }
-    footer {
-      background: #5d2a2a;
+
+    .product button {
+      margin-top: 10px;
+      background-color: #b76e79;
       color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product button:hover {
+      background-color: #9f5c66;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+    }
+
+    .modal-content input, .modal-content select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .modal-content button {
+      background-color: #4b2e2e;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
-   <a href="index.html" class="back-btn">← Back to Home</a>
+</head>
+<body>
+
+  <header>
+    <h1>Jutiyas Collection</h1>
+  </header>
+
+  <a href="index.html" class="back">&larr; Back to Home</a>
+
+  <div class="products">
+    <div class="product">
+      <img src="Jutiyas.jpg" alt="Handcrafted Jutiyas" />
+      <h3>Handcrafted Ethnic Jutiyas</h3>
+      <p>
+        <s>₹999</s>
+        <strong>₹749</strong>
+        <span>(25% OFF)</span>
+      </p>
+      <button onclick="openModal('Handcrafted Ethnic Jutiyas')">Order Now</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="orderModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Order Now</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <select required>
+          <option value="">Select Size</option>
+          <option>36</option>
+          <option>37</option>
+          <option>38</option>
+          <option>39</option>
+          <option>40</option>
+        </select>
+        <input type="text" placeholder="Delivery Address" required />
+        <button type="submit">Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openModal(productName) {
+      document.getElementById("orderModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("orderModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("orderModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>

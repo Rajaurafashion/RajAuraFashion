@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kurtis | RajAura</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf5;
+      color: #4b2e2e;
+    }
+
+    header {
+      background-color: #5d2a2a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      cursor: pointer;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fbe6d4;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .kurtis-section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .kurtis-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .kurtis-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .kurtis-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .kurtis-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .kurtis-card p {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #5d2a2a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 onclick="window.location.href='index.html'">RajAura - Soulful Fashion</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="kurtis.html" class="active">Kurtis</a>
+      <a href="jewellery.html">Jewellery</a>
+      <a href="jutiyas.html">Jutiyas</a>
+    </nav>
+  </header>
+
+  <section class="kurtis-section">
+    <h2>Explore Our Kurtis Collection</h2>
+    <div class="kurtis-grid">
+      <a href="long-kurtis.html" class="kurtis-card">
+        <img src="long-kurti.jpg" alt="Long Kurtis" />
+        <p>Long Kurtis</p>
+      </a>
+
+      <a href="short-kurtis.html" class="kurtis-card">
+        <img src="short-kurti.jpg" alt="Short Kurtis" />
+        <p>Short Kurtis</p>
+      </a>
+
+      <!-- Add more subcategories here -->
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 RajAura. All rights reserved.</p>
+  </footer>
+</body>
+</html>

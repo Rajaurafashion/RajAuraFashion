@@ -62,10 +62,16 @@
         email: form.email.value,
         phone: form.phone.value,
         product: form.product.value,
-        quantity: form.quantity.value,
+        quantity: form.quantity.value || 1, // Defaults to 1 if not provided
         address: form.address.value,
         notes: form.notes.value
       };
+
+      // Validate phone number format (Optional, India 10-digit example)
+      if (!/^\d{10}$/.test(form.phone.value)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+      }
 
       fetch("https://script.google.com/macros/s/AKfycbxvDk1gemZV8XNqU_VEuOcPtCfd2EaN3q6gAkraztsyRUzXJOfjBETuLIpqCGEnV5CNfg/exec", {
         method: 'POST',
@@ -85,7 +91,7 @@
       })
       .catch(error => {
         alert("There was an error submitting your order.");
-        console.error("Error:", error);
+        console.error("Network or Server Error:", error.message);
       });
     });
   </script>

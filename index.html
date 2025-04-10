@@ -8,6 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.imgur.com/HOcucFx.png') repeat;
       background-color: #f8f1e7;
       color: #4b2e2e;
     }
@@ -106,21 +107,19 @@
       padding: 40px 20px;
     }
 
-  .category-card {
-  background-image: url('https://i.imgur.com/EZbFg0E.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: #4b2e2e;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 220px;
-  text-align: center;
-  overflow: hidden;
-  transition: transform 0.3s;
-}
-
-
+    .category-card {
+      background-image: url('https://i.imgur.com/EZbFg0E.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #4b2e2e;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 220px;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
 
     .category-card:hover {
       transform: translateY(-5px);
@@ -139,6 +138,17 @@
     .category-card a {
       text-decoration: none;
       color: #4b2e2e;
+    }
+
+    @media (max-width: 600px) {
+      .featured-categories {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .category-card {
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -173,13 +183,13 @@
     </div>
     <div class="category-card">
       <a href="jewellery.html">
-        <img src="https://via.placeholder.com/300x180?text=Jewellery" alt="Jewellery">
+        <img src="images/jewellery.jpg" alt="Jewellery">
         <h3>Jewellery</h3>
       </a>
     </div>
     <div class="category-card">
       <a href="#">
-        <img src="https://via.placeholder.com/300x180?text=Jutiyas" alt="Jutiyas">
+        <img src="images/jutiyas.jpg" alt="Jutiyas">
         <h3>Jutiyas</h3>
       </a>
     </div>

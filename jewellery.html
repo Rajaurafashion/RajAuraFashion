@@ -2,120 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jewellery - RajAura</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RajAura Jewellery Collection</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="RajAura Logo" style="height: 80px;" />
+    <h1><a href="index.html" style="text-decoration: none; color: inherit;">RajAura Jewellery Collection</a></h1>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="long-kurtis.html">Kurtis</a>
+      <a href="jewellery.html">Jewellery</a>
+      <a href="jutiyas.html" class="active">Jutiyas</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product-section">
+      <h2>Our Jewellery Collection</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="Jutiyas.jpg" alt="Beige Hand Embroidered Juti">
+          <h3>Oxidised silver Jhumka</h3>
+          <p class="price">₹1,299</p>
+          <p class="material">Oxidised zink</p>
+        <a href="order-now.html?product=Beige%20Hand%20Embroidered%20Juti">
+  <button>Order Now</button>
+</a>
+
+        </div>
+        <!-- More product cards here -->
+      </div>
+    </section>
+
+    <div style="text-align: center; margin: 20px;">
+      <a href="index.html" class="back-btn">← Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 RajAura. All rights reserved.</p>
+  </footer>
+
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fff8f0;
-      color: #4b2e2e;
+      background-color: #fdf6f0;
+      color: #333;
     }
-
     header {
-      background-color: #4b2e2e;
-      padding: 20px;
+      background-color: #5d2a2a;
+      color: white;
       text-align: center;
-      color: #fff;
+      padding: 1rem;
     }
-
-    a.back {
-      display: inline-block;
-      margin: 20px;
-      padding: 8px 16px;
-      background-color: #f3d9c0;
-      border-radius: 6px;
-      color: #4b2e2e;
+    nav a {
+      color: #fbe6d4;
       text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: background-color 0.3s;
     }
-
-    a.back:hover {
-      background-color: #e5c1a3;
+    nav a.active {
+      text-decoration: underline;
     }
-
-    .products {
+    .product-section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .product-grid {
       display: flex;
       justify-content: center;
+      gap: 2rem;
       flex-wrap: wrap;
-      padding: 20px;
     }
-
-    .product {
-      border: 1px solid #e0cfcf;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 15px;
-      width: 250px;
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      width: 280px;
       text-align: center;
-      transition: transform 0.3s ease;
     }
-
-    .product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .product img {
-      width: 100%;
+    .product-card img {
+      max-width: 100%;
       border-radius: 8px;
     }
-
-    .product h3 {
-      margin: 10px 0 5px;
-    }
-
-    .product p {
-      margin: 0;
-      font-size: 16px;
-    }
-
-    .product s {
-      color: #888;
-    }
-
-    .product strong {
-      color: green;
-      margin-left: 5px;
-    }
-
-    .product span {
-      color: #d9534f;
-      margin-left: 5px;
+    .price {
       font-weight: bold;
+      color: #ba6b39;
     }
-
-    @media (max-width: 600px) {
-      .product {
-        width: 90%;
-      }
+    .material {
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .order-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #5d2a2a;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+    .order-btn:hover {
+      background-color: #8b3e3e;
+    }
+    .back-btn {
+      display: inline-block;
+      font-weight: bold;
+      text-decoration: none;
+      color: #5d2a2a;
+    }
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #5d2a2a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
-</head>
-<body>
-  <header>
-    <h1><a href="index.html" style="text-decoration: none; color: inherit;">RajAura Jewellery Collection</a></h1>
-  </header>
-
-  <a href="index.html" class="back">&larr; Back to Home</a>
-
-  <div class="products">
-    <!-- Example Product -->
-    <div class="product">
-      <img src="jewellary1.jpeg" alt="Gold Plated Earrings" />
-      <h3>Gold Plated Earrings</h3>
-      <p>
-        <s>₹1199</s>
-        <strong>₹899</strong>
-        <span>(25% OFF)</span>
-      </p>
-    </div>
-
-    <!-- Add more products here -->
-  </div>
 </body>
 </html>

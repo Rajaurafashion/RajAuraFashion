@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Order Now - RajAura</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -11,7 +10,6 @@
       color: #4b2e2e;
       padding: 40px;
     }
-
     form {
       max-width: 500px;
       margin: auto;
@@ -20,16 +18,13 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
     input, textarea {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 14px;
     }
-
     button {
       background-color: #4b2e2e;
       color: white;
@@ -38,92 +33,61 @@
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
-      width: 100%;
     }
-
     button:hover {
       background-color: #b76e79;
-    }
-
-    .success, .error {
-      text-align: center;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    .success {
-      color: green;
-    }
-
-    .error {
-      color: red;
     }
   </style>
 </head>
 <body>
-
   <h2 style="text-align:center;">Place Your Order</h2>
-
   <form id="orderForm">
     <input type="text" name="name" placeholder="Your Name" required />
     <input type="email" name="email" placeholder="Email Address" required />
     <input type="tel" name="phone" placeholder="Phone Number" required />
-    <input type="text" name="product" id="product" placeholder="Product Name" required />
-    <input type="number" name="quantity" placeholder="Quantity" required min="1" />
+    <input type="text" name="product" placeholder="Product Name" required />
+    <input type="number" name="quantity" placeholder="Quantity" required />
     <textarea name="address" placeholder="Shipping Address" required></textarea>
     <textarea name="notes" placeholder="Any Notes (Optional)"></textarea>
     <button type="submit">Submit Order</button>
-    <div id="message"></div>
   </form>
 
   <script>
-    // Auto-fill product name from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const product = urlParams.get("product");
-    if (product) {
-      document.getElementById("product").value = decodeURIComponent(product);
-    }
-
     document.getElementById('orderForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const form = e.target;
-      const message = document.getElementById('message');
-      message.innerHTML = '';
 
       const formData = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        product: form.product.value.trim(),
-        quantity: form.quantity.value.trim(),
-        address: form.address.value.trim(),
-        notes: form.notes.value.trim()
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        product: form.product.value,
+        quantity: form.quantity.value,
+        address: form.address.value,
+        notes: form.notes.value
       };
 
-    fetch("https://script.google.com/macros/s/AKfycbxvDk1gemZV8XNqU_VEuOcPtCfd2EaN3q6gAkraztsyRUzXJOfjBETuLIpqCGEnV5CNfg/exec", {
-  method: 'POST',
-  mode: 'no-cors', // 👈 TEMPORARY BYPASS (won’t return proper success/failure)
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(formData)
-})
-
-      .then(res => res.json())
-      .then(response => {
-        if (response.success) {
-          message.innerHTML = "<div class='success'>🎉 Your order has been submitted!</div>";
+      fetch("https://script.google.com/macros/s/AKfycbxvDk1gemZV8XNqU_VEuOcPtCfd2EaN3q6gAkraztsyRUzXJOfjBETuLIpqCGEnV5CNfg/exec", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          alert("Order submitted successfully!");
           form.reset();
         } else {
-          message.innerHTML = "<div class='error'>❌ Failed to submit. Try again!</div>";
+          alert("Failed to submit order: " + result.error);
         }
       })
       .catch(error => {
+        alert("There was an error submitting your order.");
         console.error("Error:", error);
-        message.innerHTML = "<div class='error'>⚠️ Network error. Try later.</div>";
       });
     });
   </script>
-
 </body>
 </html>
